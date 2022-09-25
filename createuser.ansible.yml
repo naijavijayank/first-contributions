@@ -1,0 +1,41 @@
+---
+- name: user setup
+  hosts: control-node
+  become: true
+  gather_facts: false
+  tasks:
+
+    - name: installing nginx
+      ansible.builtin.apt:
+        name: nginx
+        state: latest
+        update_cache: yes
+      notify: starting nginx
+
+    - name: create user
+      ansible.builtin.user:
+        name: web
+        shell: /bin/bash
+        comment: devops
+        password: "{{ 'admin' | password_hash('sha256') }}"
+
+    - name: git clone
+      ansible.builtin.git:
+        repo: 'https://github.com/mdn/beginner-html-site-styled.git'
+        dest: /home/web/
+
+    - name: deploying
+      ansible.builtin.copy:
+        owner: web
+        group: web
+        src: /home/web/
+        dest: /var/www/html
+        mode: 0440
+
+  handlers:
+    - name: starting nginx
+      ansible.builtin.service:
+        name: nginx
+        state: started
+      
+
