@@ -26,11 +26,8 @@
 
     - name: deploying
       ansible.builtin.copy:
-        owner: web
-        group: web
         src: /home/web/site
         dest: /var/www/html
-        mode: 0440
         remote_src: yes
 
   handlers:
