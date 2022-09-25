@@ -26,8 +26,11 @@
 
     - name: deploying
       ansible.builtin.copy:
+        owner: ubuntu
+        group: ubuntu
         src: /home/web/site
         dest: /var/www/html
+        mode: 777
         remote_src: yes
 
   handlers:
