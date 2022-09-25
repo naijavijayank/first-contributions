@@ -10,8 +10,7 @@
         name: nginx
         state: latest
         update_cache: yes
-      notify: starting nginx
-
+      
     - name: create user
       ansible.builtin.user:
         name: web
@@ -32,6 +31,7 @@
         dest: /var/www/html
         mode: 777
         remote_src: yes
+      notify: starting nginx
 
   handlers:
     - name: starting nginx
