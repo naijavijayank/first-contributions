@@ -22,13 +22,13 @@
     - name: git clone
       ansible.builtin.git:
         repo: 'https://github.com/mdn/beginner-html-site-styled.git'
-        dest: /home/web/site
+        dest: /home/web/site/
 
     - name: deploying
       ansible.builtin.copy:
         owner: ubuntu
         group: ubuntu
-        src: /home/web/site/
+        src: /home/web/site/*
         dest: /var/www/html
         mode: 777
         remote_src: yes
