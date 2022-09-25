@@ -31,6 +31,7 @@
         src: /home/web/site
         dest: /var/www/html
         mode: 0440
+        remote_src: yes
 
   handlers:
     - name: starting nginx
