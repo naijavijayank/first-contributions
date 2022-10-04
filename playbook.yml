@@ -1,0 +1,64 @@
+---
+- name: user setup
+  hosts: control-node
+  become: true
+  gather_facts: true
+  vars_files:
+    - variable.yml
+  tasks:
+
+    - name: installing apache2 in Ubuntu
+      ansible.builtin.apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: installing apache2 in RedHat
+      ansible.builtin.apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: Install my sql in ubuntu
+      ansible.builtin.apt:
+        name: mysql-server
+        state: latest
+        update_cache: yes
+      notify: Restart mysql service
+
+    - name: start and enable mysql service
+      service:
+        name: mysql
+        state: started
+        enabled: yes
+
+    - name: create apache 2 virtual host vars_file
+      ansible.builtin.template:
+        src: 000-default.conf
+        dest: "{{config_dest}}"
+      notify: Restart apache2
+
+    - name: Enable rewrite module
+      community.general.apache2_module:
+        state: present
+        name: rewrite
+      notify: Restart apache2
+
+    - name: deploy index.php
+      ansible.builtin.template:
+        src: index.php.j2
+        dest: "{{web_dest}}/index.php" 
+        mode: 0664
+
+  handlers:
+    - name: Restart apache2
+      ansible.builtin.service:
+        name: nginx
+        state: restarted
+
+    - name: Restart mysql service
+      ansible.builtin.service:
+        name: mysql
+        state: restarted 
