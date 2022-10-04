@@ -3,3 +3,8 @@ admin_email: webmaster@localhost
 config_dest: /etc/apache2/sites-enabled/000-default.conf
 web_dest: /var/www/html
 http_port: 80
+php_modules:
+  - php 
+  - libapache2-mod-php
+  - php-mcrypt
+  - php-mysql

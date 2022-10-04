@@ -28,9 +28,22 @@
         update_cache: yes
       notify: Restart mysql service
 
+    - name: Installing php modules
+      ansible.builtin.apt:
+        name: "{{item}}"
+        state: present
+        update_cache: yes
+        loop: "{{php_modules}}"
+
     - name: start and enable mysql service
       service:
         name: mysql
+        state: started
+        enabled: yes
+
+    - name: start apache2 service
+      service:
+        name: apache2
         state: started
         enabled: yes
 
@@ -55,7 +68,7 @@
   handlers:
     - name: Restart apache2
       ansible.builtin.service:
-        name: nginx
+        name: apache2
         state: restarted
 
     - name: Restart mysql service
