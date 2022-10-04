@@ -36,7 +36,7 @@
 
     - name: create apache 2 virtual host vars_file
       ansible.builtin.template:
-        src: 000-default.conf
+        src: 000-default.conf.j2
         dest: "{{config_dest}}"
       notify: Restart apache2
 
