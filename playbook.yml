@@ -24,7 +24,7 @@
     - name: Install my sql in ubuntu
       ansible.builtin.apt:
         name: mysql-server
-        state: latest
+        state: present
         update_cache: yes
       notify: Restart mysql service
 
