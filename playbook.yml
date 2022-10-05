@@ -69,8 +69,8 @@
 
     - name: create .my.cnf and encrypt using vault and copy to server for passwordless access
       ansible.builtin.copy:
-        src: ~/.my.cnf
-        dest: ~/.my.cnf
+        src:  ~/.my.cnf
+        dest: /home/ubuntu/.my.cnf
         mode: 0600
       notify: Restart mysql service
 
