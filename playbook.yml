@@ -5,7 +5,7 @@
   gather_facts: true
   vars_files:
     - variable.yml
-    - handler.yml
+
   tasks:
 
     - name: installing apache2 in Ubuntu
