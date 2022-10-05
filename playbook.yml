@@ -40,7 +40,6 @@
       service:
         name: mysql
         state: started
-        enabled: yes
 
     - name: start apache2 service
       service:
@@ -51,6 +50,7 @@
 
     - name: create non privileged user in mysql
       community.mysql.mysql_user:
+        name: tom
         config_file: ~/.my.cnf
 
 
