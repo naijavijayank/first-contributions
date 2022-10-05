@@ -3,10 +3,8 @@
     ansible.builtin.service:
       name: apache2
       state: restarted
-      listen: Restart apache2
 
   - name: Restart mysql service
     ansible.builtin.service:
       name: mysql
       state: restarted 
-      listen: Restart mysql service
