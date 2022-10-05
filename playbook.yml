@@ -50,9 +50,8 @@
       notify: Restart apache2
 
     - name: create non privileged user in mysql
-      mysql_user:
-        name: tom
-        password: "{{ 'tom' | password_hash('sha256') }}"
+      community.mysql.mysql_user:
+        config_file: ~/.my.cnf
 
 
     - name: create apache 2 virtual host vars_file
