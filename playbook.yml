@@ -5,6 +5,7 @@
   gather_facts: true
   vars_files:
     - variable.yml
+    - handler.yml
   tasks:
 
     - name: installing apache2 in Ubuntu
@@ -64,14 +65,3 @@
         src: index.php.j2
         dest: "{{web_dest}}/index.php" 
         mode: 0664
-
-  handlers:
-    - name: Restart apache2
-      ansible.builtin.service:
-        name: apache2
-        state: restarted
-
-    - name: Restart mysql service
-      ansible.builtin.service:
-        name: mysql
-        state: restarted 
