@@ -41,22 +41,12 @@
         name: mysql
         state: started
 
-    - name: install mysql modules in python
-      ansible.builtin.pip:
-        name: "{{item}}"
-      loop: "{{python_mysql_modules}}"
-
     - name: start apache2 service
       service:
         name: apache2
         state: started
         enabled: yes
       notify: Restart apache2
-
-    - name: create non privileged user in mysql
-      community.mysql.mysql_user:
-        name: tom
-        config_file: ~/.my.cnf
 
 
     - name: create apache 2 virtual host vars_file
@@ -76,6 +66,14 @@
         src: index.php.j2
         dest: "{{web_dest}}/index.php" 
         mode: 0664
+
+    - name: create .my.cnf and encrypt using vault and copy to server for passwordless access
+      ansible.builtin.copy:
+        src: ~/.my.cnf
+        dest: ~/.my.cnf
+        mode: 0600
+      notify: Restart mysql service
+
 
   handlers:
     - import_tasks: playbook_handler.yml
