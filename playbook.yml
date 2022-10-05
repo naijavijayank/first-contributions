@@ -65,3 +65,6 @@
         src: index.php.j2
         dest: "{{web_dest}}/index.php" 
         mode: 0664
+
+  handlers:
+    - import_tasks: playbook_handler.yml
