@@ -43,7 +43,7 @@
 
     - name: install mysql modules in python
       ansible.builtin.pip:
-        name:"{{item}}"
+        name: "{{item}}"
       loop: "{{python_mysql_modules}}"
 
     - name: start apache2 service
