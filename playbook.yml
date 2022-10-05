@@ -33,7 +33,7 @@
         name: "{{item}}"
         state: present
         update_cache: yes
-        with_items: "{{php_modules}}"
+      loop: "{{php_modules}}"
 
     - name: start and enable mysql service
       service:
