@@ -6,5 +6,3 @@ http_port: 80
 php_modules:
   - php 
   - libapache2-mod-php
-  - php-mcrypt
-  - php-mysql
