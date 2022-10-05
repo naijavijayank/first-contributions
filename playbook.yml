@@ -41,6 +41,11 @@
         name: mysql
         state: started
 
+    - name: install mysql modules in python
+      ansible.builtin.pip:
+        name:"{{item}}"
+      loop: "{{python_mysql_modules}}"
+
     - name: start apache2 service
       service:
         name: apache2

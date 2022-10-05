@@ -6,3 +6,7 @@ http_port: 80
 php_modules:
   - php 
   - libapache2-mod-php
+python_mysql_modules:
+  - mysqlclient
+  - PyMySQL
+  - MySQLdb
