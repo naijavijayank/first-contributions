@@ -1,0 +1,21 @@
+---
+- name: user setup
+  hosts: control-node
+  become: true
+  gather_facts: true
+  vars_files:
+    - var/p1_var.yml
+
+  tasks:
+    - name: installing pre requisite for mysql_user module
+      pip:
+        name:
+          - MySQL-python
+          - PyMySQL
+          - mysqlclient
+    - name: create a mysql user
+      mysql_user:
+        name: bob
+        password: test
+        priv: '*.*:ALL'
+        state: present
