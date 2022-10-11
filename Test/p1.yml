@@ -10,10 +10,11 @@
         name:
           - PyMySQL
           - mysqlclient
+
     - name: create a mysql user
       mysql_user:
-        login_user: root
-        login_password: admin
+        login_user: tom
+        login_password: tom
         name: bob
         password: test
         priv: '*.*:ALL'
