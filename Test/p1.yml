@@ -8,7 +8,6 @@
     - name: installing pre requisite for mysql_user module
       pip:
         name:
-          - MySQL-python
           - PyMySQL
           - mysqlclient
     - name: create a mysql user
