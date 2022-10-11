@@ -12,6 +12,8 @@
           - mysqlclient
     - name: create a mysql user
       mysql_user:
+        login_user: root
+        login_password: admin
         name: bob
         password: test
         priv: '*.*:ALL'
