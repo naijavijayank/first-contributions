@@ -1,3 +1,6 @@
 ---
 config_path: /etc/apache2/sites-enabled/000-default.conf
+admin_email: webmaster@localhost
+web_dest: /var/www/html
+http_port: 80
 
