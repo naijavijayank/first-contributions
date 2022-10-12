@@ -1,12 +1,12 @@
 ---
     - name: Install my sql in ubuntu
       ansible.builtin.apt:
-        name: mysql-new-server
+        name: mysql-server
         state: present
         update_cache: yes
       notify: Restart mysql-new service
 
-    - name: start and enable mysql-new service
+    - name: start and enable mysql service
       service:
         name: mysql-new
         state: started
