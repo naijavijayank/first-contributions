@@ -1,0 +1,5 @@
+---
+py_modules:
+  - MySQL-python
+  - PyMySQL
+  - mysqlclient
