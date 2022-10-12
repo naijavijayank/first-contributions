@@ -28,6 +28,12 @@
   - name: Disable default config
     shell: |
       a2dissite 000-default
+
+  - name: Configure wp-config.php
+    copy:
+      src: /srv/www/wordpress/wp-config-sample.php
+      dest: /srv/www/wordpress/wp-config.php
+      owner: www-data
       
   - name: Create a database of name wordpress
     mysql_db:
