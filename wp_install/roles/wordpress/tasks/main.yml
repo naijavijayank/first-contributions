@@ -38,7 +38,7 @@
       
   - name: Create a database of name wordpress
     mysql_db:
-      name: mydb1
+      name: wordpress
       state: present
       login_unix_socket: /run/mysqld/mysqld.sock
 
