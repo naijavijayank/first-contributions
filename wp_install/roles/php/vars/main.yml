@@ -1,5 +1,5 @@
 ---
-- php_modules:
+ - php_modules:
     - {module_name: "php"}
     - {module_name: "libapache2-mod-php"}
     - {module_name: "php-bcmath"}
