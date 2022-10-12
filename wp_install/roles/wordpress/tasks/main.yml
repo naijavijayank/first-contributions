@@ -21,9 +21,8 @@
     notify: Restart apache2
 
   - name: Enable wordpress module
-    community.general.apache2_module:
-      state: present
-      name: wordpress
+    shell: |
+      sudo a2ensite wordpress
     notify: Restart apache2
 
   - name: Disable default config
