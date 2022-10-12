@@ -1,0 +1,21 @@
+---
+- name: user setup
+  hosts: control-node
+  become: true
+  gather_facts: true
+  vars_files:
+    - variable.yml
+
+  tasks:
+
+    - name: installing apache2 in Ubuntu
+      ansible.builtin.apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+
+    - name: start apache2 service
+      service:
+        name: apache2
+        state: started
+        enabled: yes
