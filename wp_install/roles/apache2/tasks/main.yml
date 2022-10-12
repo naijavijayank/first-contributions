@@ -1,0 +1,20 @@
+---
+    - name: installing apache2 in Ubuntu
+      ansible.builtin.apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+      when: ansible_facts['os_family'] == "Debian"
+
+    - name: installing apache2 in RedHat
+      ansible.builtin.apt:
+        name: apache2
+        state: latest
+        update_cache: yes
+      when: ansible_facts['os_family'] == "RedHat"
+
+    - name: create apache 2 virtual host vars_file
+      ansible.builtin.template:
+        src: 000-default.conf.j2
+        dest: "{{config_path}}"
+      notify: Restart apache2

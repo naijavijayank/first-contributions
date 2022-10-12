@@ -4,6 +4,6 @@
   gather_facts: true
   roles:
     - apache2
-    - mysql
-    - php
-    - wordpress
+#    - mysql
+#    - php
+#    - wordpress
