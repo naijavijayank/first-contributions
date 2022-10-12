@@ -3,6 +3,7 @@
     file:
       path: /srv/www
       owner: www-data
+      state: absent
 
   - name: Downloading WordPress
     shell: |
