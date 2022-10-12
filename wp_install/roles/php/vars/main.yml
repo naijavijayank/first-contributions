@@ -1,13 +1,13 @@
 ---
- - php_modules:
-    - { module_name: "php" }
-    - { module_name: "libapache2-mod-php" }
-    - { module_name: "php-bcmath" }
-    - { module_name: "php-curl" }
-    - { module_name: "php-imagick" }
-    - { module_name: "php-intl" }
-    - { module_name: "php-json" }
-    - { module_name: "php-mbstring" }
-    - { module_name: "php-mysql-new" }
-    - { module_name: "php-xml" }
-    - { module_name: "php-zip" }
+- php_modules:
+    - php
+    - libapache2-mod-php
+    - php-bcmath
+    - php-curl
+    - php-imagick
+    - php-intl
+    - php-json
+    - php-mbstring
+    - php-mysql-new
+    - php-xml
+    - php-zip

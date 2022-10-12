@@ -1,7 +1,18 @@
 ---
     - name: Installing php modules
       ansible.builtin.apt:
-        name: "{{item.module_name}}"
+        pkg:
+          - php
+          - libapache2-mod-php
+          - php-bcmath
+          - php-curl
+          - php-imagick
+          - php-intl
+          - php-json
+          - php-mbstring
+          - php-mysql-new
+          - php-xml
+          - php-zip
         state: present
         update_cache: yes
-      with_items: "{{php_modules}}"
+
