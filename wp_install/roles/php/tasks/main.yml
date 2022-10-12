@@ -1,7 +1,7 @@
 ---
     - name: Installing php modules
       ansible.builtin.apt:
-        name: "{{item}}"
+        name: "{{item.module_name}}"
         state: present
         update_cache: yes
-      loop: "{{php_modules}}"
+      with_items: "{{php_modules}}"
