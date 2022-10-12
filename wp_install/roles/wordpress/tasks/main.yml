@@ -14,6 +14,11 @@
       src: wordpress.conf
       dest: /etc/apache2/sites-available/000-default.conf
 
+  - name: update WordPress config
+    copy:
+      src: wp-config.php
+      dest: /srv/www/wordpress/wp-config.php
+
   - name: copy wordpress.conf into apache2 sites-enabled
     copy:
       src: wordpress.conf
