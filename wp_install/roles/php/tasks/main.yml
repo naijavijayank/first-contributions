@@ -10,7 +10,7 @@
           - php-intl
           - php-json
           - php-mbstring
-          - php-mysql-new
+          - php-mysql
           - php-xml
           - php-zip
         state: present
