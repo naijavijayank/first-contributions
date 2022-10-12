@@ -47,7 +47,7 @@
       name: wordpress
       password: test
       priv:
-        'mydb1.*': 'SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER'
+        'wordpress.*': 'SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,ALTER'
       state: present
     become: yes
 
