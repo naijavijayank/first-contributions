@@ -12,7 +12,7 @@
   - name: copy wordpress.conf into apache2
     copy:
       src: wordpress.conf
-      dest: /etc/apache2/sites-available
+      dest: /etc/apache2/sites-available/000-default.conf
 
   - name: Enable rewrite module
     community.general.apache2_module:
@@ -24,10 +24,6 @@
     shell: |
       sudo a2ensite wordpress
     notify: Restart apache2
-
-  - name: Disable default config
-    shell: |
-      a2dissite 000-default
 
   - name: Configure wp-config.php
     copy:
