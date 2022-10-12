@@ -3,8 +3,6 @@
   hosts: control-node
   become: true
   gather_facts: true
-  vars_files:
-    - variable.yml
 
   tasks:
 
