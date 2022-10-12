@@ -3,7 +3,7 @@
   become: true
   gather_facts: true
   roles:
-#    - apache2
-#    - mysql
-#    - php
+    - apache2
+    - mysql
+    - php
     - wordpress
