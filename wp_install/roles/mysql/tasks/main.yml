@@ -4,11 +4,11 @@
         name: mysql-server
         state: present
         update_cache: yes
-      notify: Restart mysql-new service
+      notify: Restart mysql service
 
     - name: start and enable mysql service
       service:
-        name: mysql-new
+        name: mysql
         state: started
 
     - name: installing pre requisite for mysql_user module
