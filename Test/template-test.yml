@@ -1,0 +1,11 @@
+---
+- name: user setup
+  hosts: control-node
+  become: true
+  gather_facts: false
+
+  tasks:
+    - name: Testing template
+      ansible.builtin.template:
+        src: templates/wp-config.php.j2
+        dest: /srv/www/wordpress/wp-config.php
