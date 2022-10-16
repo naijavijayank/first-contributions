@@ -9,3 +9,4 @@
       ansible.builtin.template:
         src: templates/wp-config.php.j2
         dest: /srv/www/wordpress/wp-config.php
+        owner: www-data
